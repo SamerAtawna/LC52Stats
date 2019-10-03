@@ -1,0 +1,7 @@
+{
+  "name": "LC52Stats",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
