@@ -8,12 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import configFirebase from './firebase';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabase } from '@angular/fire/database';
+
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { DataService } from './data.service';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,14 +20,12 @@ import { DataService } from './data.service';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(),
-    AppRoutingModule,
-    AngularFireModule.initializeApp(configFirebase)
+    AppRoutingModule
   ],
   providers: [
     StatusBar,
-    AngularFireDatabase,
-    AngularFirestore,
     DataService,
+    SocialSharing,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

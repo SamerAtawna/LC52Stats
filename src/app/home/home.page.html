@@ -1,44 +1,62 @@
 <ion-header>
   <ion-toolbar color="dark" dir="rtl">
-    <ion-grid >
+    <ion-grid>
       <ion-row>
-  
-          <ion-col size="6" >    <ion-title>
-              מונה הזמנות
+
+        <ion-col size="6">
+          <ion-title>
+            מונה הזמנות
           </ion-title>
         </ion-col>
-  
-        <ion-col dir="ltr" size="6" (click)="getCounters()">
-            <ion-icon name="md-refresh-circle"></ion-icon>
-            </ion-col>
-   
+
+        <ion-col dir="ltr" size="6">
+          <div class="iconsdiv">
+            <div>
+              <ion-icon name="md-refresh-circle" (click)="getCounters()"></ion-icon>
+            </div>
+            <div (click)="whatsappShare()">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </div>
+            <div (click)="emailShare()">
+              <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
+            </div>
+          </div>
+
+
+        </ion-col>
+
       </ion-row>
     </ion-grid>
-   
+
 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
- <ion-grid fixed dir="rtl">
-<div>{{todayFormatted}}</div>
-   <ion-row *ngIf="counterObj != []">
-     <ion-col size="12">
-  
-       <ion-card dir="ltr" class="card" *ngFor="let rest of Rests"  padding>
-         <ion-card-header>
-           <ion-card-subtitle><div class='restData'><div>{{rest.Name}}</div> <div>{{rest.Count}}</div></div></ion-card-subtitle>
-           <ion-card-title></ion-card-title>
-         </ion-card-header>
-       </ion-card>
-     </ion-col>
-   </ion-row>
-   <ion-row>
-     <ion-col size="12">
-       <ion-img [src]="logo"></ion-img>
-     </ion-col>
-   </ion-row>
- 
- </ion-grid>
- <div class="copyright">Samer Alataona(C) 2019</div>
+  <ion-grid fixed dir="rtl">
+    <div>{{todayFormatted}}</div>
+    <ion-row *ngIf="counterObj != []">
+      <ion-col size="12">
+
+        <ion-card dir="ltr" class="card" *ngFor="let rest of Rests" padding>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <div class='restData'>
+                <div>{{rest.Name}}</div>
+                <div>{{rest.Count}}</div>
+              </div>
+            </ion-card-subtitle>
+            <ion-card-title></ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-img [src]="logo"></ion-img>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <div class="copyright">Samer Alataona(C) 2019</div>
 </ion-content>
