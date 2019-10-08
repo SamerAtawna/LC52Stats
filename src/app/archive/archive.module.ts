@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [
     IonicModule,
     NgxDatatableModule,
     MatSortModule,
+    AgGridModule,
     MatTableModule,
     RouterModule.forChild(routes)
   ],

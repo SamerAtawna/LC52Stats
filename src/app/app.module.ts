@@ -16,6 +16,9 @@ import { HistoryComponent } from './history/history.component';
 import { DataTablesModule } from 'angular-datatables';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { AgGridModule } from 'ag-grid-angular';
+import { Screenshot } from '@ionic-native/screenshot/ngx';
+
 
 @NgModule({
   declarations: [AppComponent, HistoryComponent],
@@ -27,13 +30,16 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AppRoutingModule,
     DataTablesModule,
     NgxDatatableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    AgGridModule
+    
   ],
   providers: [
     StatusBar,
     DataService,
     SocialSharing,
     SplashScreen,
+    Screenshot,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

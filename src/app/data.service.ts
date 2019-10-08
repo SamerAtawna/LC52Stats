@@ -1,22 +1,23 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+
 
 import {
   HttpClientModule,
   HttpClient,
   HttpHeaders
-} from '@angular/common/http';
-import { Rest } from './user';
-import { Hist } from './hist';
+} from "@angular/common/http";
+import { Rest } from "./user";
+import { Hist } from "./hist";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class DataService {
-  apiUrl = 'https://lc52counters.herokuapp.com/data';
-  devUrl = 'http://localhost:3000/data';
-  isDev = true;
+  apiUrl = "https://lc52counters.herokuapp.com/data";
+  devUrl = "http://localhost:3000/data";
+  isDev = false;
 
   constructor(private http: HttpClient) {}
   createArray(arr) {
@@ -31,7 +32,7 @@ export class DataService {
     return this.http.get<Rest[]>(this.isDev ? this.devUrl : this.apiUrl);
   }
   getHistory(): Observable<any[]> {
-    return this.http.get('http://localhost:3000/datahistory').pipe(
+    return this.http.get("https://lc52counters.herokuapp.com/datahistory").pipe(
       map((x: [Hist]) => {
         return x.map(d => {
           return this.createArray([d.Date, ...d.Counters]);

@@ -32,3 +32,10 @@
 datatable-scroller {
     width: 50% !important;
 }
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+.rtlAlert {
+    direction: rtl;
+    text-align: center;
+    
+}
