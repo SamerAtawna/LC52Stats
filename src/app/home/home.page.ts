@@ -16,6 +16,7 @@ export class HomePage {
   counter = 0;
   logo = "assets/nn.png";
   today = new Date();
+  version = '2.0';
   todayFormatted = `${this.today.getDate()}/${this.today.getMonth() +
     1}/${this.today.getFullYear()}`;
   counterObj: any[] = [];

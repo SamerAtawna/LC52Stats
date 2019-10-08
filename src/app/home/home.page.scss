@@ -6,7 +6,7 @@ ion-card-subtitle{
     font-size: 22px;
 }
 ion-card{
-    background: linear-gradient(40deg,#45cafc,#303f9f)!important;
+    background: linear-gradient(40deg, #000000, #000733)!important;
 }
 ion-card-subtitle{
     color:white;
@@ -35,4 +35,7 @@ ion-card-title{
     display: flex;
     width: 60%;
     justify-content: space-around;
+}
+a{
+    color:white;
 }

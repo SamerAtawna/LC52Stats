@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="dark">
+   <ion-icon slot="start" name="arrow-back" routerLink = '/home' direction="back"></ion-icon> <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <div class="icn">
+          <div class="c">   <img src="../../assets/xl.png" (click)="save()"></div>
+          <div class="c">      <ion-icon name="md-refresh-circle" (click)="hist()"></ion-icon></div>
+          <div class="c"></div>
+        </div>
+     
+  
+        <ion-icon slot="start" name="md-refresh-circle"></ion-icon>
+          <ngx-datatable id="mytable"  class="material"
+          [rows]="resHistory"
+          [columns]="columns">
+        </ngx-datatable>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
