@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from "@angular/core";
 import { LoadingController } from "@ionic/angular";
 import { DataService } from "../data.service";
 import * as Excel from "exceljs";
@@ -13,7 +13,9 @@ const myWorkbook = new Excel.Workbook();
 @Component({
   selector: "app-archive",
   templateUrl: "./archive.page.html",
-  styleUrls: ["./archive.page.scss"]
+  styleUrls: ["./archive.page.scss"],
+  encapsulation: ViewEncapsulation.None,
+
 })
 export class ArchivePage implements OnInit {
   resHistory;

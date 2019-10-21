@@ -45,7 +45,7 @@ export class HomePage {
   }
   async presentAlert() {
     const alert = await this.alertController.create({
-      message: `מה חדש בגרסא 2.0:<br> ניתן לראות היסטורית הזמנות `,
+      message: `מה חדש בגרסא 2.1:<br> תיקון באגים `,
       buttons: ['OK'],
       cssClass: 'rtlAlert'
     });
