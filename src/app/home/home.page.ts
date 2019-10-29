@@ -17,7 +17,7 @@ export class HomePage {
   total: number = 0;
   logo = "assets/nn.png";
   today = new Date();
-  version = "2.0";
+  version = "2.2.0";
   todayFormatted = `${this.today.getDate()}/${this.today.getMonth() +
     1}/${this.today.getFullYear()}`;
   counterObj: any[] = [];
@@ -38,6 +38,7 @@ export class HomePage {
   async getD() {
     return new Promise((res, rej) => {
       return this.dt.getData().subscribe(d => {
+        this.total = 0;
         console.log(d);
         this.Rests = d;
         d.forEach(s => {
