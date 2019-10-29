@@ -41,7 +41,7 @@
     <ion-row *ngIf="counterObj != []">
       <ion-col size="12">
 <div  *ngFor="let rest of Rests; let i= index">
-  <ion-card dir="ltr" class="card" *ngIf="i<3" padding>
+  <ion-card dir="ltr" class="card" *ngIf="i<3"  class="ion-padding">
     <ion-card-header>
       <ion-card-subtitle>
         <div class='restData'>
@@ -60,7 +60,11 @@
       <ion-col size="12">
       </ion-col>
     </ion-row>
-
+    <ion-row>
+        <ion-col text-center style="font-size: 54px;">
+          {{total}}
+          </ion-col>
+    </ion-row>
   </ion-grid>
   <div class="copyright">Samer Alataona(C) 2019 v{{version}}</div>
 </ion-content>

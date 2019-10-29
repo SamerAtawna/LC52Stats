@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  ViewEncapsulation
+} from "@angular/core";
 import { LoadingController } from "@ionic/angular";
 import { DataService } from "../data.service";
 import * as Excel from "exceljs";
@@ -14,8 +20,7 @@ const myWorkbook = new Excel.Workbook();
   selector: "app-archive",
   templateUrl: "./archive.page.html",
   styleUrls: ["./archive.page.scss"],
-  encapsulation: ViewEncapsulation.None,
-
+  encapsulation: ViewEncapsulation.None
 })
 export class ArchivePage implements OnInit {
   resHistory;
@@ -24,19 +29,11 @@ export class ArchivePage implements OnInit {
   title = "app";
   @ViewChild("dt", { static: false }) sa;
 
-  columnDefs = [
-    { headerName: "Date", field: "Date" },
-    { headerName: "Black", field: "black" },
-    { headerName: "Japan Japan", field: "japan" },
-    { headerName: "Power Bowl", field: "power" }
-  ];
-
-
   columns = [
-    { name: "Date", prop: "Date" },
-    { name: "Black", width: 80 },
-    { name: "Japan", width: 80 },
-    { name: "Power", width: 80 }
+    { name: "Date",  width: 110, prop: "Date", cellClass: "my-custom-cell" },
+    { name: "Black", width: 80, cellClass: "my-custom-cell" },
+    { name: "Japan", width: 80, cellClass: "my-custom-cell" },
+    { name: "Power", width: 80, cellClass: "my-custom-cell" }
   ];
   config;
   constructor(
