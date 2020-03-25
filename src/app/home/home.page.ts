@@ -18,7 +18,7 @@ export class HomePage {
   total: number = 0;
   logo = "assets/nn.png";
   today = new Date();
-  version = "2.2.0";
+  version = "2.5.0";
   todayFormatted = `${this.today.getDate()}/${this.today.getMonth() +
     1}/${this.today.getFullYear()}`;
   counterObj: any[] = [];
@@ -73,7 +73,7 @@ export class HomePage {
   }
   async presentAlert() {
     const alert = await this.alertController.create({
-      message: `מה חדש בגרסא 2.1:<br> תיקון באגים `,
+      message: `מה חדש בגרסא 2.5:<br> שרת גיבוי `,
       buttons: ["OK"],
       cssClass: "rtlAlert"
     });
