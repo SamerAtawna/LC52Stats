@@ -17,6 +17,7 @@ import { Hist } from "./hist";
 export class DataService {
   apiUrl = "https://lc52counters.herokuapp.com/data";
   devUrl = "http://localhost:3000/data";
+  alertUrl = "http://lc52stat.us-east-2.elasticbeanstalk.com/data";
   isDev = false;
 
   constructor(private http: HttpClient) {}
@@ -30,6 +31,11 @@ export class DataService {
   }
   getData(): Observable<Rest[]> {
     return this.http.get<Rest[]>(this.isDev ? this.devUrl : this.apiUrl);
+  }
+
+  getDataAlter(): Observable<Rest[]> {
+    console.log("aleter serve");
+    return this.http.get<Rest[]>(this.alertUrl);
   }
   getHistory(): Observable<any[]> {
     return this.http.get("https://lc52counters.herokuapp.com/datahistory").pipe(

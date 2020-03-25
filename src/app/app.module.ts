@@ -18,6 +18,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AgGridModule } from 'ag-grid-angular';
 import { Screenshot } from '@ionic-native/screenshot/ngx';
+import { AdMobFree } from '@ionic-native/admob-free/ngx';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { Screenshot } from '@ionic-native/screenshot/ngx';
     StatusBar,
     DataService,
     SocialSharing,
+    AdMobFree,
     SplashScreen,
     Screenshot,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

@@ -2,8 +2,9 @@ import { Component, NgZone } from "@angular/core";
 import { Observable } from "rxjs";
 import { Rest } from "../user";
 import { DataService } from "../data.service";
-import { LoadingController, AlertController } from "@ionic/angular";
+import { LoadingController, AlertController, Platform } from "@ionic/angular";
 import { SocialSharing } from "@ionic-native/social-sharing/ngx";
+import { AdMobFree, AdMobFreeBannerConfig } from "@ionic-native/admob-free/ngx";
 
 @Component({
   selector: "app-home",
@@ -12,7 +13,7 @@ import { SocialSharing } from "@ionic-native/social-sharing/ngx";
 })
 export class HomePage {
   items: Observable<any[]>;
-  Rests: Rest[];
+  Rests: Rest[] = [];
   counter = 0;
   total: number = 0;
   logo = "assets/nn.png";
@@ -27,7 +28,9 @@ export class HomePage {
     private loading: LoadingController,
     private social: SocialSharing,
     private zone: NgZone,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public platform :Platform,
+    private admobFree: AdMobFree
   ) {}
   async presentLoading() {
     const loading = await this.loading.create({
@@ -42,15 +45,31 @@ export class HomePage {
         console.log(d);
         this.Rests = d;
         d.forEach(s => {
-          if(typeof s.Count === 'string'){
+          if (typeof s.Count === "string") {
             this.total += parseInt(s.Count);
           }
-         
+
           // console.log(typeof s.Count)
         });
         res();
       });
     });
+  }
+  ionViewWillEnter() {
+    console.log("will enter");
+    this.platform.ready().then(()=>{
+      console.log("oninit")
+      const bannerConfig: AdMobFreeBannerConfig = {
+        autoShow: true,
+        id: "ca-app-pub-2213555762660469/1953203471"
+      };
+      this.admobFree.banner.config(bannerConfig);
+  
+      this.admobFree.banner
+        .prepare()
+        .then(() => {console.log("show ad")})
+        .catch(e => console.log(e));
+    })
   }
   async presentAlert() {
     const alert = await this.alertController.create({
@@ -62,11 +81,30 @@ export class HomePage {
     await alert.present();
   }
   getCounters() {
+    let countDown = setTimeout(() => {
+      console.log(this.Rests.length)
+      if (this.Rests.length == 0) {
+        this.loading.dismiss();
+        this.dt.getDataAlter().subscribe(d=>{
+          this.total = 0;
+            this.Rests = d;
+            d.forEach(s => {
+              if (typeof s.Count === "string") {
+                this.total += parseInt(s.Count);
+              }
+    
+              // console.log(typeof s.Count)
+            });
+        })
+        
+      }
+    }, 12000);
     this.presentLoading()
       .then(async () => {
         await this.getD().then(() => {
           console.log("finished");
           this.loading.dismiss();
+          clearTimeout(countDown);
         });
       })
       .then(() => {});
@@ -136,5 +174,15 @@ export class HomePage {
             console.log(err);
           });
       });
+  }
+
+  async showMessage(m) {
+    const alert = await this.alertController.create({
+      message: m,
+      buttons: ["OK"],
+      cssClass: "rtlAlert"
+    });
+
+    await alert.present();
   }
 }

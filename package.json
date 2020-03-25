@@ -24,6 +24,7 @@
     "@angular/platform-browser": "~8.2.9",
     "@angular/platform-browser-dynamic": "~8.2.9",
     "@angular/router": "~8.2.9",
+    "@ionic-native/admob-free": "^5.23.0",
     "@ionic-native/core": "^5.15.0",
     "@ionic-native/file": "^5.15.0",
     "@ionic-native/screenshot": "^5.15.0",
@@ -36,9 +37,12 @@
     "ag-grid-community": "^21.2.2",
     "angular-datatables": "^8.0.0",
     "com.darktalker.cordova.screenshot": "^0.1.6",
+    "cordova-admob-sdk": "^0.24.1",
     "cordova-android": "8.1.0",
+    "cordova-plugin-admob-free": "^0.27.0",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-x-socialsharing": "^5.6.0",
+    "cordova-promise-polyfill": "0.0.2",
     "core-js": "^3.2.1",
     "datatables.net": "^1.10.20",
     "datatables.net-dt": "^1.10.20",
@@ -106,7 +110,10 @@
         "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
       },
       "cordova-plugin-file": {},
-      "com.darktalker.cordova.screenshot": {}
+      "com.darktalker.cordova.screenshot": {},
+      "cordova-plugin-admob-free": {
+        "ADMOB_APP_ID": "ca-app-pub-2213555762660469~6084020175"
+      }
     },
     "platforms": [
       "android"
